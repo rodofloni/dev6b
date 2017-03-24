@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Stats</h1>
+    <p class="lead">See here how you've done!</p>
+    <!--<p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>-->
+</div>
+
+<div class="row">
+    <div class="table-responsive">
+      <table class="table">
+        <!--<thead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+          </tr>
+        </thead>-->
+        <tbody>
+          <tr>
+            <td>Previous Test Correct</td>
+            <td>{{previous[0]}}</td>
+          </tr>
+          <tr>
+            <td>Previous Test Wrong</td>
+            <td>{{previous[1]}}</td>
+          </tr>
+          {% if (previous[0] + previous[1]) != 0 %}
+          <tr>
+            <td>Previous Test Percentage Correct</td>
+            <td>{{(previous[0] / (previous[0]+previous[1])) * 100}}%</td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td>Total Correct</td>
+            <td>{{total[0]}}</td>
+          </tr>
+          <tr>
+            <td>Total Wrong</td>
+            <td>{{total[1]}}</td>
+          </tr>
+          <tr>
+            <td>Total Questions Answered</td>
+            <td>{{total[0] + total[1]}}</td>
+          </tr>
+          {% if (total[0] + total[1]) != 0 %}
+          <tr>
+            <td>Total Percentage Correct</td>
+            <td>{{(total[0] / (total[0] + total[1])) * 100}}%</td>
+          </tr>         
+          {% endif %} 
+        </tbody>
+      </table>
+
+    </div>
+    <p><a class="btn btn-danger" href="/clearSessionStorage">Clear All Stats</a></p>
+</div>
+
+{% endblock %}

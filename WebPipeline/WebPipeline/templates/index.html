@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Dev-6b</h1>
+    <p class="lead">Test your skills in English, now with stats!</p>
+    <!--<p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>-->
+</div>
+
+<div class="row">
+    {% for item in items %}
+    <div class="col-md-4">
+        <h2>{{item.name}}</h2>
+        <p>
+            {{item.description}}
+        </p>
+        <p><a class="btn btn-default" href="/module/{{item.name}}">Start Now &raquo;</a></p>
+    </div>
+    {% endfor %}
+  <div class="col-md-4">
+    <h2>Results</h2>
+    <p>
+      See your results in table form, full of helpful information! No need for logging in, you can just watch the stats as you go!
+    </p>
+    <p><a class="btn btn-default" href="/results">See Now &raquo;</a></p>
+  </div>
+</div>
+
+{% endblock %}

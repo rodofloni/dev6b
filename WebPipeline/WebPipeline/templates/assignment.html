@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    {%if result%}
+      <h1>{{result[0]}}</h1>
+      <p class="lead">{{result[1]}}</p>
+    {% else %}
+      <h1>Start!</h1>
+      <p class="lead">Good luck on the test!</p>
+    {%endif%}
+    <!--<p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>-->
+</div>
+
+<script type="text/javascript">
+  function redirect() {
+    
+    alert(a)
+  }
+</script>
+
+<div class="row">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>{{titles[0]}}</th>
+            <th>{{titles[1]}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{item[0]}}</td>
+            <td><input type="text" name="box" value=""></td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-default" onclick="window.location.replace('/grade/' + document.getElementsByName('box')[0].value)">Check &raquo;</a>
+    </div>
+</div>
+
+{% endblock %}
